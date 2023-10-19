@@ -2,29 +2,29 @@ version: "3"
 
 services:
   pylint: 
-    build: 'pylint/'
+    build: './docker-test/pylint/'
     volumes:
       - '../app:/app/'
   unittest: 
-    build: 'docker-test/unittest/'
+    build: './docker-test/unittest/'
     volumes:
       - '../app:/app/'
   radon-cc: 
-    build: 'docker-test/radon-cc/'
+    build: './docker-test/radon-cc/'
     volumes:
       - '../app:/app/'
   radon-raw: 
-    build: 'docker-test/radon-raw/'
+    build: './docker-test/radon-raw/'
     volumes:
       - '../app:/app/'
   app:
     build: 
       context: '/home/joffreym2igcp/python-api-handle-it/'
-      dockerfile: 'docker-app/python/Dockerfile'
+      dockerfile: './docker-app/python/Dockerfile'
     ports:
       - '5000:5000'
   robot:
-    build: 'docker-test/robot/'
+    build: './docker-test/robot/'
     environment:
       URL: 'app'
       PORT: '5000'
