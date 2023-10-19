@@ -8,7 +8,9 @@ services:
   unittest: 
     build: 'unittest/'
     volumes:
-      - '../app:/app/'
+      - type: bind
+        source: ../app
+        target: /app/
   # radon-cc: 
   #   build: 'radon-cc/'
   #   volumes:
