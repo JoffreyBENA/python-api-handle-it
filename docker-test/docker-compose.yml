@@ -1,14 +1,14 @@
 version: "3"
 
 services:
-  pylint: 
-    build: 'pylint/'
-    volumes:
-      - '../app:/app/'
-  # unittest: 
-  #   build: 'unittest/'
+  # pylint: 
+  #   build: 'pylint/'
   #   volumes:
   #     - '../app:/app/'
+  unittest: 
+    build: 'unittest/'
+    volumes:
+      - '../app:/app/'
   # radon-cc: 
   #   build: 'radon-cc/'
   #   volumes:
