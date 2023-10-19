@@ -4,41 +4,31 @@ services:
   pylint: 
     build: 'pylint/'
     volumes:
-      - type: bind
-        source: ../app
-        target: /app/
+      - '../app:/app/'
   unittest: 
-    build: 'unittest/'
+    build: 'docker-test/unittest/'
     volumes:
-      - type: bind
-        source: ../app
-        target: /app/
+      - '../app:/app/'
   radon-cc: 
-    build: 'radon-cc/'
+    build: 'docker-test/radon-cc/'
     volumes:
-      - type: bind
-        source: ../app
-        target: /app/
+      - '../app:/app/'
   radon-raw: 
-    build: 'radon-raw/'
+    build: 'docker-test/radon-raw/'
     volumes:
-      - type: bind
-        source: ../app
-        target: /app/
+      - '../app:/app/'
   app:
     build: 
-      context: /home/joffreym2igcp/python-api-handle-it/
+      context: '/home/joffreym2igcp/python-api-handle-it/'
       dockerfile: 'docker-app/python/Dockerfile'
     ports:
-      - 5000:5000
+      - '5000:5000'
   robot:
-    build: 'robot/'
+    build: 'docker-test/robot/'
     environment:
-      URL : app
-      PORT: 5000
+      URL: 'app'
+      PORT: '5000'
     depends_on: 
       - app
     volumes:
-      - type: bind
-        source: ../app
-        target: /app/
+      - '../app:/app/'
