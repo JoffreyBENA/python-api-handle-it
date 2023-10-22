@@ -19,7 +19,7 @@ services:
       - '../app:/app/'
   app:
     build: 
-      context: '/home/joffreym2igcp/python-api-handle-it/'
+      context: '/home/jogcpm2i/python-api-handle-it/'
       dockerfile: 'docker-app/python/Dockerfile'
     ports:
       - '5000:5000'
